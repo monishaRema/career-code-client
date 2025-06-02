@@ -23,14 +23,24 @@ const Navbar = () => {
       </li>
 
       {
+        // if user is applicant 
         user &&  <li>
         <NavLink className='text-black text-lg ' to="/myApplications">My Apllications</NavLink>
       </li>
       }
       {
-        user &&  <li>
+
+        //  if user is employer
+        user && <>
+         <li>
         <NavLink className='text-black text-lg ' to="/addJob">Add Job</NavLink>
       </li>
+       <li>
+        <NavLink className='text-black text-lg ' to="/myPostedJob">Published Jobs</NavLink>
+      </li>
+        </>
+        
+       
       }
     </div>
   );

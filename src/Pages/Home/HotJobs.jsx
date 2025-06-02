@@ -22,12 +22,12 @@ const HotJobs = ({ jobsPromise }) => {
   if (loading) return <div>Loading jobs...</div>;
 
   return (
-    <section className="py-20">
-      <div className="conainer">
+    <section className="py-20 bg-gray-800">
+      <div className="container">
         <h2 className="text-center text-4xl font-bold mb-8">Hot Jobs For You</h2>
-     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {jobs.length > 0 ? (
-        jobs.map((job) => <div key={job._id}><JobCard job={job}></JobCard></div>)
+        jobs.map((job) => <JobCard key={job._id} job={job}></JobCard>)
       ) : (
         <div>No jobs found.</div>
       )}

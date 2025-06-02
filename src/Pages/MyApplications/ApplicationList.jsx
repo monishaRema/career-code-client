@@ -5,23 +5,21 @@ const ApplicationList = ({ myApplicationsPromise }) => {
   const applications = use(myApplicationsPromise);
   console.log(applications)
   return (
-    <div>
-      <h3 className="text-3xl">Job Applied So Far:{applications.length}</h3>
+    <div className="container mx-auto px-5">
+      <h3 className="text-4xl font-bold mb-3">Job Applied So Far : {applications.length}</h3>
 
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
-          <thead>
+ 
+          <thead className="text-pink-600 text-xl font-semibold">
             <tr>
               <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
+               SL
               </th>
-              <th>Name</th>
               <th>Job</th>
-              <th>Favorite Color</th>
-              <th></th>
+              <th>Company</th>
+              <th>F</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>

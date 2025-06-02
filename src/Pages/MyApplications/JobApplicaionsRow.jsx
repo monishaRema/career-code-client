@@ -25,7 +25,7 @@ const JobApplicationsRow = ({ application, index }) => {
       </td>
       <td>—</td>
       <th>
-        <button className="btn btn-ghost btn-xs">Details</button>
+        <button className="btn btn-secondary btn-xs">Details</button>
       </th>
     </tr>
   );

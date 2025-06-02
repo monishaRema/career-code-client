@@ -9,6 +9,9 @@ import JobApply from "../Pages/JobApply/JobApply";
 import PrivateRoute from "./Routes/PrivateRoute";
 import MyApplications from "../Pages/MyApplications/MyApplications";
 import AddJob from "../Pages/AddJob/AddJob";
+import MyPublishedJobs from "../Pages/MyPublishedJobs/MyPublishedJobs";
+import ViewApplications from "../Pages/ViewApllications/ViewApplications";
+import { baseUrl } from "../Api/applicationsApi";
 
 export const router = createBrowserRouter([
   {
@@ -20,27 +23,40 @@ export const router = createBrowserRouter([
         Component: Home ,
       },
       {
-        path:'/jobs/:id',
+        path:'jobs/:id',
         Component:JobDetails,
-        loader:({params})=> fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader:({params})=> fetch(`${baseUrl}jobs/${params.id}`)
       },
       {
-        path:'/jobApply/:id',
+        path:'jobApply/:id',
         element:<PrivateRoute>
           <JobApply></JobApply>
         </PrivateRoute>
       },
       {
-        path:'/myApplications',
+        path:'myApplications',
         element:<PrivateRoute>
           <MyApplications></MyApplications>
         </PrivateRoute>
       },
       {
-        path:'/addJob',
+        path:'addJob',
         element:<PrivateRoute>
           <AddJob></AddJob>
         </PrivateRoute>
+      },
+      {
+        path:'myPostedJob',
+         element:<PrivateRoute>
+          <MyPublishedJobs></MyPublishedJobs>
+        </PrivateRoute>
+      },
+      {
+        path:'applications/:job_id',
+         element:<PrivateRoute>
+          <ViewApplications></ViewApplications>
+        </PrivateRoute>,
+        loader: ({params})=> fetch(`${baseUrl}applications/job/${params.job_id}`)
       },
       {
         path: "register",

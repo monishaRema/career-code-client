@@ -14,22 +14,22 @@ const JobCard = ({ job }) => {
     salaryRange,
   } = job;
   return (
-    <section className="py-20 bg-gray-200">
-      <div className="container mx-auto">
-    <div className="card bg-base-100 w-96 shadow-sm">
-      <div className="flex gap-2 ">
+   
+      
+    <div className="card bg-gray-700 shadow-sm py-5">
+      <div className="flex gap-5 px-4 items-start">
         <figure>
-          <img src={company_logo} alt="comanay-logo" className="w-30" />
+          <img src={company_logo} alt="comanay-logo" className="w-20" />
         </figure>
         <div>
-          <h3>{company}</h3>
+          <h3 className="text-2xl font-bold mb-2">{company}</h3>
           <p className="flex items-center gap-1">
             {" "}
             <FaLocationPin /> {location}
           </p>
         </div>
       </div>
-      <div className="card-body">
+      <div className="card-body pb-0">
         <h2 className="card-title">
           {title}
           <div className="badge badge-secondary">NEW</div>
@@ -37,7 +37,7 @@ const JobCard = ({ job }) => {
         Salary: {salaryRange.min} - {salaryRange.max}{" "}
         {salaryRange.currency.toUpperCase()}
         <p className="my-4">{description}</p>
-        <div className="card-actions justify-end">
+        <div className="card-actions">
           {requirements?.map((skil, index) => (
             <div className="badge badge-outline text-white " key={index}>
               {skil}
@@ -45,12 +45,11 @@ const JobCard = ({ job }) => {
           ))}
         </div>
         <div className="card-actions mt-3">
-          <Link to={`/jobs/${_id}`}><button className="btn btn-primary">Show Details</button></Link>
+          <Link className="btn btn-primary w-full" to={`/jobs/${_id}`}>Show Details</Link>
         </div>
       </div>
     </div>
-    </div>
-    </section>
+
   );
 };
 
